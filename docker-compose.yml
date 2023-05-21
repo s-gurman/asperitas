@@ -2,23 +2,23 @@ version: "3"
 
 services:
     mysql:
-        image: "mysql:8"
+        image: mysql:8
         command: --default-authentication-plugin=mysql_native_password
         environment:
             MYSQL_DATABASE: "vk-go"
             MYSQL_ROOT_PASSWORD: "admin"
         ports:
-            - "3306:3306"
+            - 3306:3306
         volumes:
             - "./.init_mysql/:/docker-entrypoint-initdb.d/"
 
     mongodb:
-        image: "mongo:5"
+        image: mongo:5
         restart: always
         environment:
             MONGO_INITDB_DATABASE: "vk-go"
         ports:
-            - "27017-27019:27017-27019"
+            - 27017-27019:27017-27019
 
     adminer:
         image: adminer
